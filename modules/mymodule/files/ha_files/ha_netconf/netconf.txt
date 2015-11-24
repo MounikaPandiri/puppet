@@ -1,0 +1,6 @@
+sudo apt-get install libxml2 libssh2-1 libssh2-1-dev(server)
+
+mydir>
+sudo dpkg -i yuma-2.1-1.u1004.i386.deb
+mydir> sudo dpkg -i yuma-doc-2.1-1.u1004.i386.deb
+mydir> sudo dpkg -i yuma-dev-12.1-1.u1004.i386.deb

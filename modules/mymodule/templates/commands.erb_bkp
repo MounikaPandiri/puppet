@@ -1,0 +1,21 @@
+cd /usr/lib/yuma
+ls > /home/tcs/1.txt
+cd /home/tcs/
+ls > 2.txt
+cd /home/tcs/modules
+ls -l > /home/tcs/3.txt
+date >> /home/tcs/3.txt
+cd /home/tcs
+sudo echo "while true" > /home/tcs/haproxy.sh
+sudo echo "do">> /home/tcs/haproxy.sh
+sudo echo "if [ `ls -l /usr/lib/yuma | wc -l` -eq 3 ] && [ `ls -l /home/tcs/modules | wc -l` -eq 2 ]">> /home/tcs/haproxy.sh
+sudo echo "then">> /home/tcs/haproxy.sh
+sudo echo "netconfd --superuser=tcs --module=haproxy &" >> /home/tcs/haproxy.sh
+sudo echo "exit">> /home/tcs/haproxy.sh
+sudo echo "else">> /home/tcs/haproxy.sh
+sudo echo "continue" >> /home/tcs/haproxy.sh
+sudo echo "fi">> /home/tcs/haproxy.sh
+sudo echo "done">> /home/tcs/haproxy.sh
+sudo chmod +x /home/tcs/haproxy.sh
+sudo sh /home/tcs/haproxy.sh &
+

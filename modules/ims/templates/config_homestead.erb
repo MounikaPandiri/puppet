@@ -1,0 +1,15 @@
+#!/bin/bash
+cd /home/tcs/homestead_files/homestead/cassandra
+sudo dpkg -i *.deb
+sudo service cassandra restart
+cd /home/tcs/homestead_files/homestead/homestead-prov
+sudo dpkg -i *.deb
+cd /home/tcs/homestead_files/homestead/homestead
+sudo dpkg -i *.deb
+cd /home/tcs/homestead_files/homestead/yuma
+sudo dpkg -i *.deb
+sudo chmod 777 /etc/ssh/sshd_config
+sudo echo "Port 830" >> /etc/ssh/sshd_config
+sudo echo "Subsystem netconf /usr/sbin/netconf-subsystem" >> /etc/ssh/sshd_config
+sudo service ssh restart
+#sudo service homestead restart

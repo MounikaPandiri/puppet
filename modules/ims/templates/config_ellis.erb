@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /home/tcs/ellis_files/ellis
+sudo dpkg -i *.deb
+sudo chmod 777 /etc/ssh/sshd_config
+sudo echo "Port 830" >> /etc/ssh/sshd_config
+sudo echo "Subsystem netconf /usr/sbin/netconf-subsystem" >> /etc/ssh/sshd_config
+sudo service ssh restart
+sudo bash -c "export PATH=/usr/share/clearwater/ellis/env/bin:$PATH;cd /usr/share/clearwater/ellis/src/metaswitch/ellis/tools/ ;python create_numbers.py --start 6505550000 --count 1000"
+#sudo service ellis restart

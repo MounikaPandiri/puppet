@@ -1,0 +1,8 @@
+sudo chmod 777 /etc/ssh/sshd_config
+sudo echo "Port 830" >> /etc/ssh/sshd_config
+sudo echo "Subsystem netconf /usr/sbin/netconf-susbsystem" >> /etc/ssh/sshd_config
+sudo service ssh restart
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+sudo netconfd superuser=tcs module=haproxy &
+sudo mkdir /home/tcs/dependency
+sudo puppet agent --disable

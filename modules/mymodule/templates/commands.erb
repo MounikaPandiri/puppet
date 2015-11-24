@@ -1,0 +1,10 @@
+sudo echo "sudo echo \"sudo echo \"Port 830\" >> /etc/ssh/sshd_config\" >> b.sh" >> /home/tcs/haproxy.sh
+sudo echo "sudo echo \"sudo echo \"Subsystem netconf /usr/sbin/netconf-susbsystem\" >> /etc/ssh/sshd_config\" >> b.sh" >> /home/tcs/haproxy.sh
+sudo echo "sudo echo \"sudo service ssh restart\" >> b.sh" >> /home/tcs/haproxy.sh
+sudo echo "sudo sh b.sh" >> /home/tcs/haproxy.sh
+sudo echo "crontab -u tcs -l; echo "@reboot /usr/sbin/netconfd --module=haproxy --superuser=tcs"  | crontab -u tcs -" >> /home/tcs/haproxy.sh
+sudo chmod +x /home/tcs/haproxy.sh
+sudo sh /home/tcs/haproxy.sh
+sudo mkdir /home/tcs/dependency
+sudo reboot
+
